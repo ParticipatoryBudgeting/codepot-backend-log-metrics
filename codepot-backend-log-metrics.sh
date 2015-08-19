@@ -9,12 +9,12 @@ error_counter() {
     errors_counter=`echo $errors_today | wc -l`
     errors_ip_counter=`echo $errors_ips | wc -l`
 
-    echo "errors-${errorCode}-total-count $errors_counter"
-    echo "errors-${errorCode}-ip-count $errors_ip_counter"
+    echo "errors-${errorCode}-total-count value=$errors_counter"
+    echo "errors-${errorCode}-ip-count value=$errors_ip_counter"
 
     for ip in $errors_ips; do
             by_ip_counter=`echo $errors_total | grep $ip | wc -l`
-            echo "error-${errorCode}-by-ip-counter-$ip $by_ip_counter"
+            echo "error-${errorCode}-by-ip-counter-$ip value=$by_ip_counter"
     done
 }
 data=/tmp/codepot-backend-log-metrics.txt
